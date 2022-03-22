@@ -1,21 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Snake
 {
 	class Sounds
 	{
-        WindowsMediaPlayer player = new WindowsMediaPlayer();
+        /*WindowsMediaPlayer player = new WindowsMediaPlayer();
         private string pathToMedia;
 
-        public Sound(string pathToResources)
+		internal string GetResourceFolder()
+		{
+			throw new NotImplementedException();
+		}
+
+		public Sounds(string pathToResources)
         {
             pathToMedia = pathToResources;
         }
-        public void Play()
+
+		public Sounds()
+		{
+		}
+
+		public void Play()
         {
-            player.URL = pathToMedia + "Stardust.mp3";
+            player.URL = pathToMedia + "Sweden.mp3";
             player.settings.volume = 100;
             player.controls.play();
             player.settings.setMode("loop", true);
@@ -36,6 +48,6 @@ namespace Snake
             player.URL = pathToMedia + "Dead.mp3";
             player.settings.volume = 100;
             player.controls.play();
-        }
+        }*/
     }
 }

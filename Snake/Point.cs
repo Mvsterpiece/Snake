@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Snake
 {
-    class Point
+    class Point : Color
     {
 		public int x;
 		public int y;
@@ -46,6 +48,7 @@ namespace Snake
 
 		public bool IsHit(Point p)
 		{
+			Console.ForegroundColor = GetRandomConsoleColor();
 			return p.x == this.x && p.y == this.y;
 		}
 

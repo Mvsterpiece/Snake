@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Snake
 {
-    class FoodCreator //класс для создания еды
+	class FoodCreator //класс для создания еды
     {
 		int mapWidht;
 		int mapHeight;
