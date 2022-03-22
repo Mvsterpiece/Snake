@@ -10,25 +10,21 @@ namespace Snake
 		public int y;
 		public char sym;
 
-		public Point()
-		{
-		}
-
-		public Point(int x, int y, char sym)
+		public Point(int x, int y, char sym) //конструктор для создания точки, который берет 2 позиции на оси координат и символ точки 
 		{
 			this.x = x;
 			this.y = y;
 			this.sym = sym;
 		}
 
-		public Point(Point p)
+		public Point(Point p)//конструктор, который позволяет обновлять месторасположение точки
 		{
 			x = p.x;
 			y = p.y;
 			sym = p.sym;
 		}
 
-		public void Move(int offset, Direction direction)
+		public void Move(int offset, Direction direction)//метод движения
 		{
 			if (direction == Direction.RIGHT)
 			{
@@ -53,21 +49,16 @@ namespace Snake
 			return p.x == this.x && p.y == this.y;
 		}
 
-		public void Draw()
+		public void Draw()//метод для прорисовки точки
 		{
 			Console.SetCursorPosition(x, y);
 			Console.Write(sym);
 		}
 
-		public void Clear()
+		public void Clear()//метод очистки точки или же остановки змейки
 		{
 			sym = ' ';
 			Draw();
-		}
-
-		public override string ToString()
-		{
-			return x + ", " + y + ", " + sym;
 		}
 	}
 }

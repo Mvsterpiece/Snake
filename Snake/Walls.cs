@@ -23,8 +23,8 @@ namespace Snake
 			wallList.Add(leftLine);
 			wallList.Add(rightLine);
 		}
-
-		internal bool IsHit(Figure figure)
+		
+		internal bool IsHit(Figure figure)// метод для определения в случае если змейка коснется стенки
 		{
 			foreach (var wall in wallList)
 			{
@@ -36,7 +36,7 @@ namespace Snake
 			return false;
 		}
 
-		public void Draw()
+		public void Draw()//метод прорисовки стенки
 		{
 			foreach (var wall in wallList)
 			{

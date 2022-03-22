@@ -6,7 +6,7 @@ namespace Snake
 {
     class VerticalLine : Figure
     {
-		public VerticalLine(int yUp, int yDown, int x, char sym)
+		public VerticalLine(int yUp, int yDown, int x, char sym)//конструктор для место расположения точки на оси Y
 		{
 			pList = new List<Point>();
 			for (int y = yUp; y <= yDown; y++)
