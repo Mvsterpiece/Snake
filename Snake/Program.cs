@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +24,12 @@ namespace Snake
 			FoodCreator foodCreator = new FoodCreator(80, 25, '$');
 			Point food = foodCreator.CreateFood();
 			food.Draw();
+
+
+			Score score = new Score(0, 1);
+			score.speed = 150;//Изначальная скорость
+			score.ScoreUp();
+
 			//Рандомный спавн точек(еды)
 			while (true)
 			{
@@ -35,6 +41,7 @@ namespace Snake
 				{
 					food = foodCreator.CreateFood();
 					food.Draw();
+					score.ScoreUp();
 				}
 				else
 				{
@@ -47,35 +54,15 @@ namespace Snake
 					ConsoleKeyInfo key = Console.ReadKey();
 					snake.HandleKey(key.Key);
 				}
-			}
-			//Добавление статистики справа Score
-			Score score = new Score(0);
-			score.speed = 150;//Изначальная скорость
-			score.ScoreWrite();
-			while (true)
-			{
-				if (snake.Eat(food))//Если змейка сьедает, то score увеличивается
-				{
-					score.ScoreUp();
-					score.ScoreWrite();
-					food = foodCreator.CreateFood();
-					food.Draw();
-					if (score.ScoreUp())//Если Score увеличился, то скорость увеличилась на 10 единиц
+					if (Console.KeyAvailable)
 					{
-						score.speed -= 10;
+						ConsoleKeyInfo key = Console.ReadKey(true);
+						snake.HandleKey(key.Key);
 					}
-				}
-				else
-				{
-					snake.Move();
-				}
-				Thread.Sleep(score.speed);
-				if (Console.KeyAvailable)
-				{
-					ConsoleKeyInfo key = Console.ReadKey(true);
-					snake.HandleKey(key.Key);
-				}
 			}
+			GameOver end = new GameOver();
+			end.WriteGameOver();
+
 			Console.ReadLine();
 		}
     }
