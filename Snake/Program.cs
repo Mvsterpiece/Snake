@@ -47,33 +47,33 @@ namespace Snake
 					ConsoleKeyInfo key = Console.ReadKey();
 					snake.HandleKey(key.Key);
 				}
-				//Добавление статистики справа Score, Level
-				Score score = new Score(0, 1);
-				score.speed = 150;//Изначальная скорость
-				score.ScoreWrite();
-				while (true)
+			}
+			//Добавление статистики справа Score
+			Score score = new Score(0);
+			score.speed = 150;//Изначальная скорость
+			score.ScoreWrite();
+			while (true)
+			{
+				if (snake.Eat(food))//Если змейка сьедает, то score увеличивается
 				{
-					if (snake.Eat(food))//Если змейка сьедает, то score увеличивается
+					score.ScoreUp();
+					score.ScoreWrite();
+					food = foodCreator.CreateFood();
+					food.Draw();
+					if (score.ScoreUp())//Если Score увеличился, то скорость увеличилась на 10 единиц
 					{
-						score.ScoreUp();
-						score.ScoreWrite();
-						food = foodCreator.CreateFood();
-						food.Draw();
-						if (score.ScoreUp())//Если Score увеличился, то скорость увеличилась на 10 единиц
-						{
-							score.speed -= 10;
-						}
+						score.speed -= 10;
 					}
-					else
-					{
-						snake.Move();
-					}
-					Thread.Sleep(score.speed);
-					if (Console.KeyAvailable)
-					{
-						ConsoleKeyInfo key = Console.ReadKey(true);
-						snake.HandleKey(key.Key);
-					}
+				}
+				else
+				{
+					snake.Move();
+				}
+				Thread.Sleep(score.speed);
+				if (Console.KeyAvailable)
+				{
+					ConsoleKeyInfo key = Console.ReadKey(true);
+					snake.HandleKey(key.Key);
 				}
 			}
 			Console.ReadLine();
