@@ -8,7 +8,6 @@ namespace Snake
 	{
         private int score;
         public int level;
-        public int speed;
         public Score(int score, int level)
         {
             this.score = score;
@@ -16,7 +15,8 @@ namespace Snake
         }
         public void ScoreUp()//Увеличение Score
         {
-            Console.SetCursorPosition(81, 12);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(70, 0);
             Console.WriteLine("Score:" + score.ToString());
             score++;
         }

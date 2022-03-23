@@ -25,9 +25,7 @@ namespace Snake
 			Point food = foodCreator.CreateFood();
 			food.Draw();
 
-
 			Score score = new Score(0, 1);
-			score.speed = 150;//Изначальная скорость
 			score.ScoreUp();
 
 			//Рандомный спавн точек(еды)
